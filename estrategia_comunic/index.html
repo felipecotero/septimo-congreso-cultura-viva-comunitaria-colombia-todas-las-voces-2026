@@ -1,0 +1,581 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Infografía: Acuerdos de Comunicaciones 7º Congreso CVC</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@600;700;800&family=Outfit:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Outfit', 'sans-serif'],
+                        display: ['Bricolage Grotesque', 'Outfit', 'sans-serif'],
+                    },
+                    colors: {
+                        cvc: {
+                            orange: '#F97316',
+                            red: '#EF4444',
+                            purple: '#8B5CF6',
+                            dark: '#0F172A',
+                            light: '#F8FAFC'
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        body.modern-body {
+            background-color: #F8FAFC;
+            background-image:
+                radial-gradient(circle at 8% 10%, rgba(249, 115, 22, 0.24), transparent 32%),
+                radial-gradient(circle at 92% 8%, rgba(251, 191, 36, 0.22), transparent 34%),
+                radial-gradient(circle at 52% 100%, rgba(244, 114, 182, 0.18), transparent 35%);
+            min-height: 100vh;
+        }
+        .tab-content {
+            display: none;
+            opacity: 0;
+            transform: translateY(14px) scale(0.99);
+            transition: all 0.45s cubic-bezier(0.22, 1, 0.36, 1);
+        }
+        .tab-content.active {
+            display: block;
+            opacity: 1;
+            transform: translateY(0) scale(1);
+            animation: slideUpFade 0.55s ease-out forwards;
+        }
+        @keyframes slideUpFade {
+            from { opacity: 0; transform: translateY(22px) scale(0.99); }
+            to { opacity: 1; transform: translateY(0) scale(1); }
+        }
+        .hero-wrap {
+            background: linear-gradient(125deg, #7C2D12 0%, #C2410C 34%, #EA580C 64%, #DB2777 100%);
+            border: 1px solid rgba(254, 215, 170, 0.28);
+            margin: 1rem;
+            border-radius: 2.2rem;
+            box-shadow: 0 26px 62px -30px rgba(124, 45, 18, 0.72);
+        }
+        .hero-badge {
+            letter-spacing: 0.08em;
+            box-shadow: 0 15px 28px -18px rgba(190, 24, 93, 0.65);
+            border-color: rgba(253, 186, 116, 0.4);
+            background: linear-gradient(120deg, rgba(251, 191, 36, 0.22), rgba(254, 215, 170, 0.18));
+        }
+        .hero-title {
+            font-family: 'Bricolage Grotesque', 'Outfit', sans-serif;
+            font-size: clamp(3rem, 9vw, 6.8rem);
+            line-height: 0.88;
+            letter-spacing: -0.035em;
+            text-transform: uppercase;
+            text-wrap: balance;
+            text-shadow: 0 10px 28px rgba(124, 45, 18, 0.36);
+        }
+        .hero-title .title-sub {
+            display: inline-block;
+            margin-top: 0.35rem;
+            font-size: clamp(2.2rem, 7vw, 5.5rem);
+            background: linear-gradient(90deg, #FEF3C7 0%, #FDE68A 30%, #FDBA74 62%, #F9A8D4 100%);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            filter: drop-shadow(0 10px 22px rgba(124, 45, 18, 0.35));
+        }
+        .main-shell {
+            margin-top: -3.5rem;
+        }
+        .timeline-nav {
+            position: sticky;
+            top: 1rem;
+            z-index: 30;
+            background: rgba(255, 247, 237, 0.86);
+            backdrop-filter: blur(14px);
+            border: 1px solid rgba(249, 115, 22, 0.18);
+            box-shadow: 0 16px 40px -24px rgba(154, 52, 18, 0.38);
+        }
+        .timeline-btn {
+            position: relative;
+            overflow: hidden;
+            background: linear-gradient(180deg, rgba(255, 237, 213, 0.92), rgba(254, 215, 170, 0.78));
+            font-family: 'Bricolage Grotesque', 'Outfit', sans-serif;
+            letter-spacing: 0.01em;
+            transition: all 0.35s cubic-bezier(0.22, 1, 0.36, 1);
+        }
+        .timeline-btn::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 0;
+            height: 4px;
+            background-color: #FCD34D;
+            transition: width 0.3s ease;
+            border-radius: 4px 4px 0 0;
+        }
+        .timeline-btn:hover {
+            transform: translateY(-2px);
+            border-color: rgba(234, 88, 12, 0.45);
+            box-shadow: 0 14px 30px -22px rgba(154, 52, 18, 0.45);
+        }
+        .timeline-btn.active {
+            background: linear-gradient(140deg, #FB923C, #F97316 55%, #EC4899 100%);
+            color: #FEF3C7;
+            transform: translateY(-1px) scale(1.01);
+            box-shadow: 0 20px 36px -18px rgba(234, 88, 12, 0.6);
+            border-color: transparent;
+        }
+        .timeline-btn.active::after {
+            width: 40px;
+        }
+        .phase-banner {
+            background: rgba(255, 251, 235, 0.88);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(251, 146, 60, 0.24);
+            box-shadow: 0 14px 35px -28px rgba(154, 52, 18, 0.42);
+        }
+        .phase-grid {
+            gap: 1.6rem;
+        }
+        .movement-card,
+        .ministry-card {
+            border-radius: 1.8rem;
+            border: 1px solid rgba(15, 23, 42, 0.06);
+            box-shadow: 0 20px 45px -28px rgba(154, 52, 18, 0.3);
+            transition: transform 0.35s ease, box-shadow 0.35s ease;
+        }
+        .movement-card:hover,
+        .ministry-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 30px 55px -30px rgba(154, 52, 18, 0.42);
+        }
+        .movement-card {
+            background: linear-gradient(180deg, #FFE7C2 0%, #FED7AA 100%);
+        }
+        .ministry-card {
+            background: linear-gradient(160deg, #7C2D12 0%, #9A3412 55%, #BE123C 100%);
+            border-color: rgba(253, 186, 116, 0.24);
+        }
+        .movement-card h2,
+        .ministry-card h2,
+        .key-panel h3 {
+            font-family: 'Bricolage Grotesque', 'Outfit', sans-serif;
+            letter-spacing: -0.02em;
+        }
+        .movement-card h2,
+        .ministry-card h2 {
+            font-size: clamp(1.7rem, 2.6vw, 2.35rem);
+        }
+        .key-panel h3 {
+            font-size: clamp(1.85rem, 2.8vw, 2.5rem);
+        }
+        .movement-card h4,
+        .ministry-card h4,
+        .key-card span {
+            font-family: 'Bricolage Grotesque', 'Outfit', sans-serif;
+            letter-spacing: -0.01em;
+        }
+        .glass-panel {
+            background: rgba(253, 186, 116, 0.14);
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(254, 215, 170, 0.35);
+            box-shadow: inset 0 1px 0 rgba(251, 191, 36, 0.2);
+            transition: transform 0.28s ease, background 0.28s ease;
+        }
+        .glass-panel:hover {
+            transform: translateY(-2px);
+            background: rgba(253, 186, 116, 0.22);
+        }
+        .key-panel {
+            background: linear-gradient(145deg, rgba(255, 251, 235, 0.96), rgba(255, 237, 213, 0.9));
+            border: 1px solid rgba(251, 146, 60, 0.22);
+            box-shadow: 0 20px 45px -30px rgba(154, 52, 18, 0.35);
+            backdrop-filter: blur(10px);
+        }
+        .key-card {
+            background: rgba(255, 237, 213, 0.92);
+            border: 1px solid rgba(251, 146, 60, 0.16);
+            box-shadow: 0 14px 30px -25px rgba(154, 52, 18, 0.35);
+            transition: transform 0.28s ease, box-shadow 0.28s ease;
+        }
+        .key-card:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 22px 36px -24px rgba(154, 52, 18, 0.45);
+        }
+        @media (max-width: 768px) {
+            .hero-wrap {
+                margin: 0;
+                border-radius: 0 0 2rem 2rem;
+            }
+            .timeline-nav {
+                top: 0.5rem;
+            }
+        }
+    </style>
+</head>
+<body class="modern-body text-slate-800 font-sans selection:bg-cvc-orange selection:text-amber-900 pb-16">
+
+    <!-- Header Institucional -->
+    <header class="hero-wrap text-amber-50 pt-16 pb-20 px-6 relative overflow-hidden shadow-2xl">
+        <!-- Decoración de fondo -->
+        <div class="absolute inset-0 opacity-20 pointer-events-none">
+            <div class="absolute -top-24 -right-24 w-96 h-96 bg-cvc-orange rounded-full mix-blend-multiply filter blur-3xl opacity-50 animate-pulse"></div>
+            <div class="absolute top-12 -left-24 w-72 h-72 bg-cvc-purple rounded-full mix-blend-multiply filter blur-3xl opacity-50"></div>
+            <svg width="100%" height="100%" xmlns="http://www.w3.org/2000/svg" class="absolute inset-0">
+                <defs>
+                    <pattern id="dots" x="0" y="0" width="24" height="24" patternUnits="userSpaceOnUse">
+                        <circle cx="2" cy="2" r="1.5" fill="currentColor"></circle>
+                    </pattern>
+                </defs>
+                <rect width="100%" height="100%" fill="url(#dots)"></rect>
+            </svg>
+        </div>
+
+        <div class="max-w-6xl mx-auto relative z-10 text-center">
+            <span class="hero-badge inline-block py-1.5 px-4 rounded-full bg-emerald-400/20 text-emerald-100 text-sm font-bold tracking-widest mb-6 border border-emerald-300/40 uppercase shadow-lg backdrop-blur-md">
+                Evidencia y Acuerdos Consolidados
+            </span>
+            <h1 class="hero-title mb-6">
+                Hoja de Ruta Comunicaciones <br>
+                <span class="title-sub text-transparent bg-clip-text bg-gradient-to-r from-cvc-orange via-red-500 to-cvc-purple">
+                    7º Congreso CVC Colombia
+                </span>
+            </h1>
+            <p class="text-xl text-slate-300 max-w-3xl mx-auto font-light leading-relaxed">
+                Resultados de la articulación estratégica entre el Movimiento CVC y el <strong class="text-amber-100 font-semibold">Ministerio de las Culturas, las Artes y los Saberes</strong>.
+            </p>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="main-shell max-w-6xl mx-auto px-6 -mt-10 relative z-20">
+        
+        <!-- Timeline Navigation -->
+        <div class="timeline-nav bg-orange-50 rounded-2xl shadow-xl p-3 flex flex-col md:flex-row justify-between items-stretch gap-3 mb-8 border border-orange-100">
+            <button onclick="switchTab('antes')" id="btn-antes" class="timeline-btn active flex-1 py-5 px-6 rounded-xl font-bold text-lg border-2 border-slate-100 text-slate-500 hover:bg-slate-50 transition-all duration-300 flex items-center justify-center gap-3">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11 5.882V19.24a1.76 1.76 0 01-3.417.592l-2.147-6.15M18 13a3 3 0 100-6M5.436 13.683A4.001 4.001 0 017 6h1.832c4.1 0 7.625-1.234 9.168-3v14c-1.543-1.766-5.067-3-9.168-3H7a3.988 3.988 0 01-1.564-.317z"></path></svg>
+                1. EL ANTES (Expectativa)
+            </button>
+            <button onclick="switchTab('durante')" id="btn-durante" class="timeline-btn flex-1 py-5 px-6 rounded-xl font-bold text-lg border-2 border-slate-100 text-slate-500 hover:bg-slate-50 transition-all duration-300 flex items-center justify-center gap-3">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 10l4.553-2.276A1 1 0 0121 8.618v6.764a1 1 0 01-1.447.894L15 14M5 18h8a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v8a2 2 0 002 2z"></path></svg>
+                2. EL DURANTE (Desarrollo)
+            </button>
+            <button onclick="switchTab('despues')" id="btn-despues" class="timeline-btn flex-1 py-5 px-6 rounded-xl font-bold text-lg border-2 border-slate-100 text-slate-500 hover:bg-slate-50 transition-all duration-300 flex items-center justify-center gap-3">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"></path></svg>
+                3. EL DESPUÉS (Proyección)
+            </button>
+        </div>
+
+        <!-- ================= TAB 1: EL ANTES ================= -->
+        <div id="tab-antes" class="tab-content active">
+            <!-- Timeline Banner (El Antes) -->
+            <div class="phase-banner mb-6 flex flex-col md:flex-row items-center gap-4 bg-amber-50 p-4 rounded-xl border border-orange-100 shadow-sm">
+                <div class="flex items-center gap-3">
+                    <svg class="w-6 h-6 text-cvc-orange" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"></path></svg>
+                    <span class="font-bold text-slate-700 uppercase tracking-wide text-sm">Cronograma:</span>
+                    <span class="bg-cvc-orange text-amber-50 px-4 py-1.5 rounded-full text-sm font-bold shadow-md">Marzo — 16 de Abril 2026</span>
+                </div>
+                <div class="md:ml-auto flex items-center gap-2 text-sm text-emerald-700 bg-emerald-50 px-3 py-1.5 rounded-lg border border-emerald-200 font-semibold shadow-inner">
+                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+                    Acuerdo: Canalización oficial del Brief vía Dirección de Fomento.
+                </div>
+            </div>
+
+            <div class="phase-grid grid lg:grid-cols-2 gap-8">
+                <!-- Columna Movimiento CVC -->
+                <div class="movement-card bg-orange-50 rounded-3xl p-8 shadow-xl border-t-8 border-cvc-orange flex flex-col h-full">
+                    <div class="flex items-center gap-4 mb-8">
+                        <div class="bg-orange-100 p-4 rounded-2xl text-cvc-orange">
+                            <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"></path></svg>
+                        </div>
+                        <div>
+                            <h2 class="text-2xl font-extrabold text-slate-800">Órbita Movimiento CVC</h2>
+                            <p class="text-slate-500 font-medium">Gestión desde las bases</p>
+                        </div>
+                    </div>
+                    
+                    <ul class="space-y-6 flex-grow">
+                        <li class="flex items-start gap-4">
+                            <div class="bg-orange-50 p-2 rounded-lg text-cvc-orange mt-1">
+                                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11 5.882V19.24a1.76 1.76 0 01-3.417.592l-2.147-6.15M18 13a3 3 0 100-6M5.436 13.683A4.001 4.001 0 017 6h1.832c4.1 0 7.625-1.234 9.168-3v14c-1.543-1.766-5.067-3-9.168-3H7a3.988 3.988 0 01-1.564-.317z"></path></svg>
+                            </div>
+                            <div>
+                                <h4 class="font-bold text-lg text-slate-700">Difusión del Manifiesto</h4>
+                                <p class="text-slate-600">Lanzamiento y socialización de "La Palabra que Camina el Continente".</p>
+                            </div>
+                        </li>
+                        <li class="flex items-start gap-4">
+                            <div class="bg-orange-50 p-2 rounded-lg text-cvc-orange mt-1">
+                                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8h2a2 2 0 012 2v6a2 2 0 01-2 2h-2v4l-4-4H9a1.994 1.994 0 01-1.414-.586m0 0L11 14h4a2 2 0 002-2V6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2v4l.586-.586z"></path></svg>
+                            </div>
+                            <div>
+                                <h4 class="font-bold text-lg text-slate-700">Descentralización (Vocerías)</h4>
+                                <p class="text-slate-600">Activación de vocerías orgánicas por regiones para multiplicar el alcance.</p>
+                            </div>
+                        </li>
+                        <li class="flex items-start gap-4">
+                            <div class="bg-orange-50 p-2 rounded-lg text-cvc-orange mt-1">
+                                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"></path></svg>
+                            </div>
+                            <div>
+                                <h4 class="font-bold text-lg text-slate-700">Media Kit Digital</h4>
+                                <p class="text-slate-600">Distribución de material abierto y unificado para facilitar el cubrimiento por medios comunitarios.</p>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- Columna Ministerio (ACUERDOS) -->
+                <div class="ministry-card bg-cvc-dark rounded-3xl p-8 shadow-2xl text-amber-50 border-t-8 border-cvc-purple relative overflow-hidden flex flex-col h-full">
+                    <div class="absolute top-0 right-0 p-6 opacity-5 pointer-events-none">
+                        <svg class="w-48 h-48" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2L2 22h20L12 2zm0 3.83L18.17 19H5.83L12 5.83zM11 16h2v2h-2v-2zm0-7h2v5h-2V9z"/></svg>
+                    </div>
+                    
+                    <div class="flex items-center gap-4 mb-8 relative z-10">
+                        <div class="bg-purple-500/20 p-4 rounded-2xl text-purple-400">
+                            <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m3-4h1m-1 4h1m-5 8h8"></path></svg>
+                        </div>
+                        <div>
+                            <h2 class="text-2xl font-extrabold text-amber-50">Acuerdos MinCulturas</h2>
+                            <p class="text-purple-300 font-medium">Consensos de la mesa interinstitucional</p>
+                        </div>
+                    </div>
+                    
+                    <div class="space-y-5 relative z-10 flex-grow">
+                        <div class="glass-panel p-5 rounded-xl hover:bg-orange-200/20 transition-colors">
+                            <h4 class="font-bold text-xl text-cvc-orange mb-2 flex items-center gap-2">
+                                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+                                Autonomía e Identidad
+                            </h4>
+                            <p class="text-slate-300 text-sm leading-relaxed">El Ministerio reconoce al Congreso como un proceso autónomo. Se acordó que la estrategia gráfica <strong>respetará la estética popular e histórica</strong> de la CVC, sin imponer líneas corporativas ajenas.</p>
+                        </div>
+                        
+                        <div class="glass-panel p-5 rounded-xl border-l-4 border-l-purple-500 hover:bg-orange-200/20 transition-colors">
+                            <h4 class="font-bold text-xl text-purple-400 mb-2 flex items-center gap-2">
+                                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7h12m0 0l-4-4m4 4l-4 4m0 6H4m0 0l4 4m-4-4l4-4"></path></svg>
+                                Ruta Oficial de Comunicación
+                            </h4>
+                            <p class="text-slate-300 text-sm leading-relaxed">Para evitar desorden y múltiples frentes, se acordó con <strong>Alfonso Buitrago</strong> canalizar todo requerimiento formal (como el Brief) exclusivamente a través de la <strong>Dirección de Fomento</strong> y en empalme con Alicia.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- ================= TAB 2: EL DURANTE ================= -->
+        <div id="tab-durante" class="tab-content">
+            <!-- Timeline Banner (El Durante) -->
+            <div class="phase-banner mb-6 flex flex-col md:flex-row items-center gap-4 bg-amber-50 p-4 rounded-xl border border-orange-100 shadow-sm">
+                <div class="flex items-center gap-3">
+                    <svg class="w-6 h-6 text-red-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"></path></svg>
+                    <span class="font-bold text-slate-700 uppercase tracking-wide text-sm">Cronograma:</span>
+                    <span class="bg-red-500 text-amber-50 px-4 py-1.5 rounded-full text-sm font-bold shadow-md">17 al 26 de Abril 2026</span>
+                </div>
+                <div class="md:ml-auto flex items-center gap-2 text-sm text-slate-500 font-medium">
+                    <svg class="w-5 h-5 text-slate-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"></path><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"></path></svg>
+                    Ruta: Nariño, Cauca/Valle y Antioquia
+                </div>
+            </div>
+
+            <div class="phase-grid grid lg:grid-cols-2 gap-8">
+                <!-- Columna Movimiento -->
+                <div class="movement-card bg-orange-50 rounded-3xl p-8 shadow-xl border-t-8 border-red-500 flex flex-col h-full">
+                    <div class="flex items-center gap-4 mb-8">
+                        <div class="bg-red-100 p-4 rounded-2xl text-red-500">
+                            <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 12a9 9 0 01-9 9m9-9a9 9 0 00-9-9m9 9H3m9 9a9 9 0 01-9-9m9 9c1.657 0 3-4.03 3-9s-1.343-9-3-9m0 18c-1.657 0-3-4.03-3-9s1.343-9 3-9m-9 9a9 9 0 019-9"></path></svg>
+                        </div>
+                        <div>
+                            <h2 class="text-2xl font-extrabold text-slate-800">Órbita Movimiento CVC</h2>
+                            <p class="text-slate-500 font-medium">Gestión desde las bases</p>
+                        </div>
+                    </div>
+                    
+                    <ul class="space-y-6 flex-grow">
+                        <li class="flex items-start gap-4">
+                            <div class="bg-red-50 p-2 rounded-lg text-red-500 mt-1">
+                                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 10l4.553-2.276A1 1 0 0121 8.618v6.764a1 1 0 01-1.447.894L15 14M5 18h8a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v8a2 2 0 002 2z"></path></svg>
+                            </div>
+                            <div>
+                                <h4 class="font-bold text-lg text-slate-700">Cubrimiento In Situ</h4>
+                                <p class="text-slate-600">Registro vivo desde las bases durante las movilizaciones en Nariño, Valle, Cauca y Antioquia.</p>
+                            </div>
+                        </li>
+                        <li class="flex items-start gap-4">
+                            <div class="bg-red-50 p-2 rounded-lg text-red-500 mt-1">
+                                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"></path></svg>
+                            </div>
+                            <div>
+                                <h4 class="font-bold text-lg text-slate-700">Protagonismo Comunitario</h4>
+                                <p class="text-slate-600">Evidenciar la vida organizándose en los territorios. Darle el micrófono y la cámara a los gestores territoriales.</p>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- Columna Ministerio -->
+                <div class="ministry-card bg-cvc-dark rounded-3xl p-8 shadow-2xl text-amber-50 border-t-8 border-cvc-orange relative overflow-hidden flex flex-col h-full">
+                    <div class="absolute top-0 right-0 p-6 opacity-5 pointer-events-none">
+                        <svg class="w-48 h-48" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2L2 22h20L12 2zm0 3.83L18.17 19H5.83L12 5.83zM11 16h2v2h-2v-2zm0-7h2v5h-2V9z"/></svg>
+                    </div>
+                    
+                    <div class="flex items-center gap-4 mb-8 relative z-10">
+                        <div class="bg-orange-500/20 p-4 rounded-2xl text-orange-400">
+                            <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m3-4h1m-1 4h1m-5 8h8"></path></svg>
+                        </div>
+                        <div>
+                            <h2 class="text-2xl font-extrabold text-amber-50">Acuerdos MinCulturas</h2>
+                            <p class="text-orange-300 font-medium">Consensos de la mesa interinstitucional</p>
+                        </div>
+                    </div>
+                    
+                    <div class="space-y-5 relative z-10 flex-grow">
+                        <div class="glass-panel p-5 rounded-xl border-l-4 border-l-orange-500 hover:bg-orange-200/20 transition-colors">
+                            <h4 class="font-bold text-xl text-cvc-orange mb-2 flex items-center gap-2">
+                                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 10l4.553-2.276A1 1 0 0121 8.618v6.764a1 1 0 01-1.447.894L15 14M5 18h8a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v8a2 2 0 002 2z"></path></svg>
+                                Despliegue y Registro Conjunto
+                            </h4>
+                            <p class="text-slate-300 text-sm leading-relaxed">El Ministerio se comprometió a movilizar equipo para la producción de <strong>videos de seguimiento</strong> en los tres tramos de la caravana, trabajando articuladamente bajo el modelo de gobernanza público-popular.</p>
+                        </div>
+                        
+                        <div class="glass-panel p-5 rounded-xl border-l-4 border-l-amber-500 hover:bg-orange-200/20 transition-colors">
+                            <h4 class="font-bold text-xl text-amber-400 mb-2 flex items-center gap-2">
+                                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+                                Tiempos y Calendario Sensato
+                            </h4>
+                            <p class="text-slate-300 text-sm leading-relaxed">Se acordó no precipitar injustificadamente los tiempos de entregas para la próxima semana, dado el margen de 4 meses hasta el evento. El calendario detallado se construirá sin atropellar los procesos orgánicos.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- ================= TAB 3: EL DESPUÉS ================= -->
+        <div id="tab-despues" class="tab-content">
+            <!-- Timeline Banner (El Después) -->
+            <div class="phase-banner mb-6 flex flex-col md:flex-row items-center gap-4 bg-amber-50 p-4 rounded-xl border border-orange-100 shadow-sm">
+                <div class="flex items-center gap-3">
+                    <svg class="w-6 h-6 text-cvc-purple" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"></path></svg>
+                    <span class="font-bold text-slate-700 uppercase tracking-wide text-sm">Cronograma:</span>
+                    <span class="bg-cvc-purple text-amber-50 px-4 py-1.5 rounded-full text-sm font-bold shadow-md">Mayo — Diciembre 2026</span>
+                </div>
+                <div class="md:ml-auto flex items-center gap-2 text-sm text-slate-500 font-medium">
+                    <svg class="w-5 h-5 text-cvc-purple" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"></path></svg>
+                    Foco: Posicionamiento Política Pública CVC
+                </div>
+            </div>
+
+            <div class="phase-grid grid lg:grid-cols-2 gap-8">
+                <!-- Columna Movimiento -->
+                <div class="movement-card bg-orange-50 rounded-3xl p-8 shadow-xl border-t-8 border-cvc-purple flex flex-col h-full">
+                    <div class="flex items-center gap-4 mb-8">
+                        <div class="bg-purple-100 p-4 rounded-2xl text-cvc-purple">
+                            <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"></path></svg>
+                        </div>
+                        <div>
+                            <h2 class="text-2xl font-extrabold text-slate-800">Órbita Movimiento CVC</h2>
+                            <p class="text-slate-500 font-medium">Cosechando los frutos</p>
+                        </div>
+                    </div>
+                    
+                    <ul class="space-y-6 flex-grow">
+                        <li class="flex items-start gap-4">
+                            <div class="bg-purple-50 p-2 rounded-lg text-cvc-purple mt-1">
+                                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6v6m0 0v6m0-6h6m-6 0H6"></path></svg>
+                            </div>
+                            <div>
+                                <h4 class="font-bold text-lg text-slate-700">Consolidar Memoria</h4>
+                                <p class="text-slate-600">Recopilación de todos los archivos y relatos del Congreso para crear el repositorio histórico del movimiento.</p>
+                            </div>
+                        </li>
+                        <li class="flex items-start gap-4">
+                            <div class="bg-purple-50 p-2 rounded-lg text-cvc-purple mt-1">
+                                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6"></path></svg>
+                            </div>
+                            <div>
+                                <h4 class="font-bold text-lg text-slate-700">Incidencia Política Continua</h4>
+                                <p class="text-slate-600">Usar el material recogido para respaldar e impulsar los derechos culturales a largo plazo en diálogo con el Estado.</p>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- Columna Ministerio -->
+                <div class="ministry-card bg-cvc-dark rounded-3xl p-8 shadow-2xl text-amber-50 border-t-8 border-red-500 relative overflow-hidden flex flex-col h-full">
+                    <div class="absolute top-0 right-0 p-6 opacity-5 pointer-events-none">
+                        <svg class="w-48 h-48" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2L2 22h20L12 2zm0 3.83L18.17 19H5.83L12 5.83zM11 16h2v2h-2v-2zm0-7h2v5h-2V9z"/></svg>
+                    </div>
+                    
+                    <div class="flex items-center gap-4 mb-8 relative z-10">
+                        <div class="bg-red-500/20 p-4 rounded-2xl text-red-400">
+                            <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m3-4h1m-1 4h1m-5 8h8"></path></svg>
+                        </div>
+                        <div>
+                            <h2 class="text-2xl font-extrabold text-amber-50">Acuerdos MinCulturas</h2>
+                            <p class="text-red-300 font-medium">Consensos de la mesa interinstitucional</p>
+                        </div>
+                    </div>
+                    
+                    <div class="space-y-5 relative z-10 flex-grow">
+                        <div class="glass-panel p-5 rounded-xl border-l-4 border-l-red-500 hover:bg-orange-200/20 transition-colors">
+                            <h4 class="font-bold text-xl text-red-400 mb-2 flex items-center gap-2">
+                                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 4v16M17 4v16M3 8h4m10 0h4M3 12h18M3 16h4m10 0h4M4 20h16a1 1 0 001-1V5a1 1 0 00-1-1H4a1 1 0 00-1 1v14a1 1 0 001 1z"></path></svg>
+                                Memoria Viva y Política
+                            </h4>
+                            <p class="text-slate-300 text-sm leading-relaxed">Se acordó que los productos audiovisuales de cierre <strong>NO serán simples resúmenes de eventos</strong>. Deben ser documentos que den cuenta explícita del proceso organizativo y la construcción colectiva comunitaria.</p>
+                        </div>
+                        
+                        <div class="glass-panel p-5 rounded-xl border-l-4 border-l-cvc-purple hover:bg-orange-200/20 transition-colors">
+                            <h4 class="font-bold text-xl text-cvc-purple mb-2 flex items-center gap-2">
+                                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path></svg>
+                                Eje Comunitario para la Política Pública
+                            </h4>
+                            <p class="text-slate-300 text-sm leading-relaxed">Hay consenso en que estos productos comunicativos serán la herramienta medular para fortalecer la incidencia de la <strong>Política Pública de CVC</strong> frente al Estado durante todo el 2026.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- ================= BOTTOM PANEL: PRINCIPIOS RECTORES ================= -->
+        <div class="key-panel mt-12 bg-gradient-to-r from-orange-100 to-amber-100 rounded-3xl p-8 border border-orange-200 shadow-sm relative overflow-hidden">
+            <div class="absolute top-0 left-0 w-2 h-full bg-gradient-to-b from-cvc-orange to-cvc-purple"></div>
+            <h3 class="text-2xl font-extrabold text-slate-800 mb-6 flex items-center gap-3">
+                <span class="bg-orange-700 text-amber-100 p-2 rounded-xl">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+                </span>
+                Principios Rectores del Acuerdo (Día de Hoy)
+            </h3>
+            <div class="grid md:grid-cols-3 gap-6">
+                <div class="key-card bg-amber-100 p-5 rounded-2xl shadow-sm border border-orange-200">
+                    <span class="text-cvc-orange font-bold text-lg">01. Gobernanza Público-Popular</span>
+                    <p class="text-sm text-slate-600 mt-2">Todo el trabajo de comunicaciones del Ministerio no se impone; es resultado de la negociación y los acuerdos previos con la Mesa de Comunicaciones y el Grupo Impulsor CVC.</p>
+                </div>
+                <div class="key-card bg-amber-100 p-5 rounded-2xl shadow-sm border border-orange-200">
+                    <span class="text-red-500 font-bold text-lg">02. Unificación de Canales</span>
+                    <p class="text-sm text-slate-600 mt-2">Se acordó centralizar el flujo de información y el *Brief* a través de la Dirección de Fomento (Alfonso y Alicia) para evitar el desgaste de múltiples vocerías institucionales.</p>
+                </div>
+                <div class="key-card bg-amber-100 p-5 rounded-2xl shadow-sm border border-orange-200">
+                    <span class="text-cvc-purple font-bold text-lg">03. Respeto a la Autonomía</span>
+                    <p class="text-sm text-slate-600 mt-2">La premisa base de la reunión: El Congreso le pertenece a un movimiento vivo y autónomo, con una historia política en Latinoamérica mucho más antigua que el propio Ministerio.</p>
+                </div>
+            </div>
+        </div>
+
+    </main>
+
+    <script>
+        function switchTab(tabId) {
+            // Remove active classes
+            document.querySelectorAll('.tab-content').forEach(el => el.classList.remove('active'));
+            document.querySelectorAll('.timeline-btn').forEach(el => el.classList.remove('active'));
+            
+            // Add active class to selected tab and button
+            document.getElementById('tab-' + tabId).classList.add('active');
+            document.getElementById('btn-' + tabId).classList.add('active');
+        }
+    </script>
+</body>
+</html>
